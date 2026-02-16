@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+import pip
 from lob_service import send_letter
 
 app = Flask(__name__)
@@ -32,4 +33,8 @@ def send_letter_route():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=5000)
+
+    ##0.0.0.0 allows external access (Render needs this)
+    ##debug=True must NOT be used in production
+
